@@ -24,11 +24,8 @@ sandwich 是一个傻瓜化、实现简单、伪装强、安全、基于 HTTPS �
  -secret-key=dcf10cfe73d1bf97f7b3
 ```
 
-仅需这两步，什么也不做，什么也不要。
+仅需两步!
 
-# 工作原理
-
-![sandwich-flow](./sandwich-flow.png)
 
 # 简单说明
 
