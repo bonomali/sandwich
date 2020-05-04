@@ -127,7 +127,7 @@ func startLocalProxy(o options, listener net.Listener, errChan chan<- error) {
 
 	dns := newSmartDNS(
 		(&dnsOverHostsFile{}).lookup,
-		(&dnsOverHTTPS{client: client}).lookup,
+		(&dnsOverHTTPS{client: http.DefaultClient}).lookup,
 		(&dnsOverUDP{}).lookup,
 	)
 
