@@ -9,7 +9,3 @@ func setSysProxy(_ string) error {
 func unsetSysProxy() error {
 	return nil
 }
-
-func getNetworkInterface() string {
-	return ""
-}
