@@ -54,12 +54,20 @@ func newSmartDNS(lookups ...func(host string) (net.IP, time.Time)) *smartDNS {
 }
 
 func (d *smartDNS) lookup(host string) (ip net.IP, expriedAt time.Time) {
+	var failedOnce bool
+
 	for _, lookup := range d.lookups {
 		ip, expriedAt = lookup(host)
 		if ip != nil {
 			break
 		}
+		failedOnce = true
 	}
+
+	if failedOnce {
+		expriedAt = time.Now()
+	}
+
 	return
 }
 
