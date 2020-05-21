@@ -34,7 +34,7 @@ sandwich 是一个傻瓜化、实现简单、伪装强、安全、基于 HTTPS �
 如果你用的程序不支持系统代理，但支持手动设置，可手动设置程序的 HTTP/HTTPS 代理为 sandwich local 监听地址。对于两者都不支持的应用程序，比如 ssh 命令行程序，可使用 Proxifier 来强制它走 sandwish local 代理。
 
 # TODO
-* 通过创建 Tun 虚拟网卡实现透明代理，抛弃系统代理。
+* 通过创建 Tun 虚拟网卡实现透明代理
 
 # 相关博客
 * [sandwich: 如何更快、更智能、更傻瓜地看更大的世界？](http://fanpei91.com/posts/smart-proxy-without-rules/)
