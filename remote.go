@@ -15,6 +15,7 @@ import (
 type remoteProxy struct {
 	secretKey       string
 	reversedWebsite string
+	rateLimit       bool
 }
 
 func (s *remoteProxy) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
@@ -58,7 +59,10 @@ func (s *remoteProxy) reverseProxy(rw http.ResponseWriter, req *http.Request) {
 	req.URL.Host = u.Host
 	req.URL.Scheme = u.Scheme
 	req.Host = ""
-	httputil.NewSingleHostReverseProxy(u).ServeHTTP(newRateLimitResponseWriter(rw), req)
+	if s.rateLimit {
+		rw = newRateLimitResponseWriter(rw)
+	}
+	httputil.NewSingleHostReverseProxy(u).ServeHTTP(rw, req)
 }
 
 const (

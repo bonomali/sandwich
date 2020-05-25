@@ -27,6 +27,7 @@ type options struct {
 	secretKey                string
 	reversedWebsite          string
 	disableAutoCrossFirewall bool
+	rateLimit                bool
 }
 
 var (
@@ -45,9 +46,10 @@ func main() {
 	flag.StringVar(&flags.listenAddr, "listen-addr", "127.0.0.1:2286", "listens on given address")
 	flag.StringVar(&flags.certFile, "cert-file", "", "cert file path")
 	flag.StringVar(&flags.privateKeyFile, "private-key-file", "", "private key file path")
-	flag.StringVar(&flags.secretKey, "secret-key", "dbf07cfb73d0bf0777b5", "secrect header key to cross firewall")
+	flag.StringVar(&flags.secretKey, "secret-key", "secret key", "secrect key to cross firewall")
 	flag.StringVar(&flags.reversedWebsite, "reversed-website", "http://mirrors.codec-cluster.org/", "reversed website to fool firewall")
 	flag.BoolVar(&flags.disableAutoCrossFirewall, "disable-auto-cross-firewall", false, "disable auto cross firewall")
+	flag.BoolVar(&flags.rateLimit, "rate-limit", false, "rate limit")
 	flag.Parse()
 
 	daemon.SetSigHandler(termHandler, syscall.SIGQUIT, syscall.SIGTERM)
@@ -159,6 +161,7 @@ func startLocalProxy(o options, listener net.Listener, errChan chan<- error) {
 func startRemoteProxy(o options, listener net.Listener, errChan chan<- error) {
 	var err error
 	r := &remoteProxy{
+		rateLimit:       o.rateLimit,
 		secretKey:       o.secretKey,
 		reversedWebsite: o.reversedWebsite,
 	}
