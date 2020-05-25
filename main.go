@@ -12,6 +12,7 @@ import (
 	"path/filepath"
 	"strings"
 	"syscall"
+	"time"
 
 	"github.com/golang/groupcache/lru"
 	"github.com/robfig/cron/v3"
@@ -117,6 +118,7 @@ func startLocalProxy(o options, listener net.Listener, errChan chan<- error) {
 	h.Set(headerSecret, o.secretKey)
 
 	client := &http.Client{
+		Timeout: time.Second * 3,
 		Transport: &http.Transport{
 			Proxy: func(request *http.Request) (i *url.URL, e error) {
 				request.Header.Set(headerSecret, o.secretKey)
