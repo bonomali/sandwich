@@ -35,8 +35,3 @@ sandwich 是一个傻瓜化、实现简单、伪装强、安全、基于 HTTPS �
 
 # TODO
 * 通过创建 Tun 虚拟网卡实现透明代理
-
-# 相关博客
-* [sandwich: 如何更快、更智能、更傻瓜地看更大的世界？](http://fanpei91.com/posts/smart-proxy-without-rules/)
-
-* [仅需 120 行 Go 代码实现双重 HTTP(S) 代理做梯子](https://fanpei91.com/posts/implement-double-proxies-to-cross-firewall-by-using-https/)
