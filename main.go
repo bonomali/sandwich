@@ -48,7 +48,7 @@ func main() {
 	flag.StringVar(&flags.certFile, "cert-file", "", "cert file path")
 	flag.StringVar(&flags.privateKeyFile, "private-key-file", "", "private key file path")
 	flag.StringVar(&flags.secretKey, "secret-key", "secret key", "secrect key to cross firewall")
-	flag.StringVar(&flags.reversedWebsite, "reversed-website", "http://mirrors.codec-cluster.org/", "reversed website to fool firewall")
+	flag.StringVar(&flags.reversedWebsite, "reversed-website", "http://mirror.siena.edu/ubuntu/", "reversed website to fool firewall")
 	flag.BoolVar(&flags.disableAutoCrossFirewall, "disable-auto-cross-firewall", false, "disable auto cross firewall")
 	flag.BoolVar(&flags.rateLimit, "rate-limit", false, "rate limit")
 	flag.Parse()
