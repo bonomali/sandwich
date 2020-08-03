@@ -27,7 +27,7 @@ sandwich 是一个傻瓜化、实现简单、伪装强、安全、基于 HTTPS �
 
 仅需这两步，不要其他插件。
 
-如果用浏览器访问 https://<youdomain.com>，出现的就是一个正常普通的反向代理网站，这就是伪装强的原因。反向代理的网站默认为 [http//mirrors.codec-cluster.org/](http//mirrors.codec-cluster.org/) ，可在海外的 sandwich 上用 `-reversed-website` 参数指定。
+如果用浏览器访问 https://<youdomain.com>，出现的就是一个正常普通的反向代理网站，这就是伪装强的原因。反向代理的网站默认为 [http://mirror.siena.edu/ubuntu/](http://mirror.siena.edu/ubuntu/) ，可在海外的 sandwich 上用 `-reversed-website` 参数指定。
 
 所有支持系统代理的应用程序，比如 Slack，Chrome，Safari 之类的 HTTP/HTTPS 请求，都会发到 sandwich local proxy 通过 IP 段来决定是否需要转发到海外 sandwich 代理。
 
